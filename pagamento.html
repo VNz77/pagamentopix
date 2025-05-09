@@ -4,13 +4,52 @@
   <meta charset="UTF-8">
   <title>Pagamento Pix</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .copy-btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .copy-btn:hover {
+      background-color: #45a049;
+    }
+
+    .pix-chave {
+      font-size: 14px;
+      color: #333;
+      margin-top: 10px;
+      word-break: break-all;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <h1>Pagamento via Pix</h1>
     <p>Escaneie o QR Code abaixo para realizar o pagamento:</p>
     <img src="img/Captura de tela 2025-05-08 210146.png" alt="QR Code Pix" class="qr-code">
+    
+    <div class="pix-chave" id="pix-chave">
+        d2bff5b3-db65-405b-afa9-f95006abd7e6
+    </div>
+    <button class="copy-btn" onclick="copiarChave()">Copiar chave Pix</button>
+
     <a href="index.html" class="voltar">← Voltar</a>
   </div>
+
+  <script>
+    function copiarChave() {
+      const chave = document.getElementById('pix-chave').innerText;
+      navigator.clipboard.writeText(chave).then(() => {
+        alert('Chave Pix copiada!');
+      }, () => {
+        alert('Erro ao copiar.');
+      });
+    }
+  </script>
 </body>
 </html>
